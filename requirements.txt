@@ -1,2 +1,6 @@
+#autogen
 pyautogen
+
+#crewai
 crewai
+duckduckgo-search
