@@ -1,0 +1,57 @@
+{
+    "name": "Gouvernement français 2024",
+    "ministres": [
+        {
+            "name": "M. Bruno LE MAIRE",
+            "role": "ministre de l'Économie, des Finances et de la Souveraineté industrielle et numérique"
+        },
+        {
+            "name": "M. Gérald DARMANIN",
+            "role": "ministre de l’Intérieur et des Outre-mer"
+        },
+        {
+            "name": "Mme Catherine VAUTRIN",
+            "role": "ministre de l'Économie, ministre du Travail, de la Santé et des Solidarités"
+        },
+        {
+            "name": "Mme Nicole BELLOUBET",
+            "role": "ministre de l'Education nationale et de la Jeunesse"
+        },
+        {
+            "name": "M. Marc FESNEAU",
+            "role": "ministre de l'Agriculture et de la Souveraineté alimentaire"
+        },
+        {
+            "name": "Mme Rachida DATI",
+            "role": "ministre de la Culture"
+        },
+        {
+            "name": "Sébastien LECORNU",
+            "role": "ministre des Armées"
+        },
+        {
+            "name": "Éric DUPOND-MORETTI",
+            "role": "garde des Sceaux, ministre de la Justice"
+        },
+        {
+            "name": "M. Stéphane SÉJOURNÉ",
+            "role": "ministre de l’Europe et des Affaires étrangères"
+        },
+        {
+            "name": "M. Christophe BÉCHU",
+            "role": "ministre de la Transition écologique et de la Cohésion des territoires"
+        },
+        {
+            "name": "M. Stanislas GUERINI",
+            "role": "ministre de la Transformation et de la Fonction publique"
+        },
+        {
+            "name": "Mme Amélie OUDÉA-CASTÉRA",
+            "role": "ministre des Sports et des Jeux olympiques et paralympiques"
+        },
+        {
+            "name": "Mme Sylvie RETAILLEAU",
+            "role": "ministre de l'Enseignement supérieur et de la Recherche"
+        }
+    ]
+}
