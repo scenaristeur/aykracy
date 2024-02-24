@@ -9,17 +9,17 @@
         {
             "name": "M_Gerald_DARMANIN",
             "role": "ministre de l’Interieur et des Outre-mer",
-            "active": true
+            "active": false
         },
         {
             "name": "Mme_Catherine_VAUTRIN",
             "role": "ministre de l'Economie, ministre du Travail, de la Sante et des Solidarites",
-            "active": true
+            "active": false
         },
         {
             "name": "Mme_Nicole_BELLOUBET",
             "role": "ministre de l'Education nationale et de la Jeunesse",
-            "active": true
+            "active": false
         },
         {
             "name": "M_Marc_FESNEAU",
@@ -29,22 +29,22 @@
         {
             "name": "Mme_Rachida_DATI",
             "role": "ministre de la Culture",
-            "active": true
+            "active": false
         },
         {
             "name": "Sebastien_LECORNU",
             "role": "ministre des Armees",
-            "active": true
+            "active": false
         },
         {
             "name": "Eric_DUPOND-MORETTI",
             "role": "garde des Sceaux, ministre de la Justice",
-            "active": true
+            "active": false
         },
         {
             "name": "M_Stephane_SEJOURNE",
             "role": "ministre de l’Europe et des Affaires etrangères",
-            "active": true
+            "active": false
         },
         {
             "name": "M_Christophe_BECHU",
@@ -54,17 +54,17 @@
         {
             "name": "M_Stanislas_GUERINI",
             "role": "ministre de la Transformation et de la Fonction publique",
-            "active": true
+            "active": false
         },
         {
             "name": "Mme_Amelie_OUDEA-CASTERA",
             "role": "ministre des Sports et des Jeux olympiques et paralympiques",
-            "active": true
+            "active": false
         },
         {
             "name": "Mme_Sylvie_RETAILLEAU",
             "role": "ministre de l'Enseignement superieur et de la Recherche",
-            "active": true
+            "active": false
         }
     ]
 }

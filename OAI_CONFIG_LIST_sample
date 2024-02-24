@@ -4,6 +4,11 @@
         "api_key": "<your OpenAI API key here>"
     },
     {
+        "model": "llama2-uncensored",
+        "api_key": "truc",
+        "base_url": "https://5xxxxxx.ngrok-free.app/v1"
+    },
+    {
         "model": "<your Azure OpenAI deployment name>",
         "api_key": "<your Azure OpenAI API key here>",
         "base_url": "<your Azure OpenAI API base here>",

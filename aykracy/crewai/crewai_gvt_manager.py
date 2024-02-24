@@ -16,6 +16,9 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 # Callbacks support token-wise streaming
 callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
 
+# https://docs.crewai.com/core-concepts/Processes/#process-implementations
+from crewai.process import Process
+
 class CrewaiGvt:
     def __init__(self, options):
         print("crewaiGvt", options)
@@ -134,17 +137,46 @@ class CrewaiGvt:
         agent=writer
         )
 
-        task3 = Task(
-        description="""
-              Vous devez prendre des décisions en fonctions des rapports qui vous sont transmis""",
-        agent=agents[3]
-        )
-        
+        # task3 = Task(
+        # description="""
+        #       Vous devez prendre des décisions en fonctions des rapports qui vous sont transmis""",
+        # agent=agents[3]
+        # )
+
+        # task4 = Task(
+        # description="""
+        #       Vous devez prendre des décisions en fonctions des rapports qui vous sont transmis""",
+        # agent=agents[4]
+        # )
+
+        # task5 = Task(
+        # description="""
+        #       Vous devez prendre des décisions en fonctions des rapports qui vous sont transmis""",
+        # agent=agents[5]
+        # )
+
+
+        # task6 = Task(
+        # description="""
+        #       Vous devez prendre des décisions en fonctions des rapports qui vous sont transmis""",
+        # agent=agents[6]
+        # )
+
+
+        # task7 = Task(
+        # description="""
+        #       Vous devez prendre des décisions en fonctions des rapports qui vous sont transmis""",
+        # agent=agents[7]
+        # )
 
         # Instantiate your crew with a sequential process
         crew = Crew(
         agents=agents,
-        tasks=[task1, task2, task3],
+        tasks=[task1, task2,
+               # task3, task4, task5, task6, task7
+               ],
+        process=Process.hierarchical,
+        manager_llm=llm,
         verbose=2, # You can set it to 1 or 2 to different logging levels
         )
 
