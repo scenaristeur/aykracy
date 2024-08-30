@@ -5,3 +5,4 @@ OAI_CONFIG_LIST1
 __pycache__
 .cache
 models/*
+.venv

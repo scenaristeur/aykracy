@@ -1,5 +1,5 @@
 import autogen
-from autogen.agentchat.contrib.capabilities import context_handling
+#from autogen.agentchat.contrib.capabilities import context_handling
 from autogen.agentchat.contrib.web_surfer import WebSurferAgent  # noqa: E402
 print("autogen")
 

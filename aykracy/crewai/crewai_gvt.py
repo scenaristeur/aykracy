@@ -39,7 +39,7 @@ class CrewaiGvt:
         llm = LlamaCpp(
     # model_path="/Users/rlm/Desktop/Code/llama.cpp/models/openorca-platypus2-13b.gguf.q4_0.bin",
     model_path="../aykracy/models/openhermes-2.5-mistral-7b.Q2_K.gguf",
-    temperature=0.75,
+    temperature=0.1 , # 0.75, https://github.com/joaomdmoura/crewAI/issues/103#issuecomment-1894100634
     max_tokens=32000,
     n_ctx = 32768,
     top_p=1,

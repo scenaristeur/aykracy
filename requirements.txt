@@ -1,6 +1,7 @@
 #autogen
-pyautogen
+pyautogen==0.2.35
+markdownify==0.13.1
 
 #crewai
-crewai
-duckduckgo-search
+crewai==0.51.1
+duckduckgo_search==6.2.11
