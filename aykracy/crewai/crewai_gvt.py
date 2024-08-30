@@ -124,20 +124,23 @@ class CrewaiGvt:
         task1 = Task(
         description="""Vous êtes les ministres de la France. Récupérez les dernières infos sur ce qui se passe ne ce moment en France
               sur https://news.google.com/home?hl=fr&gl=FR&ceid=FR:fr """,
-        agent=researcher
+        agent=researcher,
+        expected_output="""Un bullet list avec les dernières informations.""",
         )
 
         task2 = Task(
         description="""
               Vous devez rédiger un rapport détaillé des actualités, les problèmes à résoudre, les enjeux, les actions et les recommandations.
         Votre réponse finale DOIT être un rapport proposant des solutions avec au moins 4 paragraphes, au format PDF ou markdown.""",
-        agent=writer
+        agent=writer,
+        expected_output="""Un PDF ou markdown.""",
         )
 
         task3 = Task(
         description="""
               Vous devez prendre des décisions en fonctions des rapports qui vous sont transmis""",
-        agent=agents[3]
+        agent=agents[3],
+        expected_output="""Un bullet list.""",
         )
         
 
@@ -145,7 +148,10 @@ class CrewaiGvt:
         crew = Crew(
         agents=agents,
         tasks=[task1, task2, task3],
-        verbose=2, # You can set it to 1 or 2 to different logging levels
+        #verbose=2, # You can set it to 1 or 2 to different logging levels
+        process=Process.sequential,
+        full_output=True,
+        verbose=True,
         )
 
         # Get your crew to work!
