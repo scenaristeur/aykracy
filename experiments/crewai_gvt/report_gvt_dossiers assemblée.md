@@ -1,0 +1,1 @@
+Voici le rapport détaillé sur la situation actuelle en France, les événements qui ont mené à la dissolution de l'Assemblée nationale, les solutions possibles pour sortir de cette crise et les évolutions possibles pour la France.

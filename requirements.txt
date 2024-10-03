@@ -4,4 +4,5 @@ markdownify==0.13.1
 
 #crewai
 crewai==0.51.1
+crewai-tools=0.8.3
 duckduckgo_search==6.2.11

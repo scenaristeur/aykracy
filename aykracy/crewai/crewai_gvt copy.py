@@ -1,7 +1,7 @@
 print("crewai_gvt.py")
 from crewai import Agent, Task, Crew, Process
 from langchain_community.tools import DuckDuckGoSearchRun
-import os
+import os, json
 from dotenv import load_dotenv
 #from langchain_community.llms import Ollama
 from langchain.chat_models.openai import ChatOpenAI
@@ -39,7 +39,6 @@ class CrewaiGvt:
         llm = LlamaCpp(
     # model_path="/Users/rlm/Desktop/Code/llama.cpp/models/openorca-platypus2-13b.gguf.q4_0.bin",
     model_path="../aykracy/models/openhermes-2.5-mistral-7b.Q2_K.gguf",
-    #model_path="../aykracy/models/Meta-Llama-3.1-8B-Instruct.Q4_K_M.gguf",
     temperature=0.1 , # 0.75, https://github.com/joaomdmoura/crewAI/issues/103#issuecomment-1894100634
     max_tokens=32000,
     n_ctx = 32768,
@@ -120,17 +119,17 @@ class CrewaiGvt:
 
         print(f"-----------------------------------  {len(agents)} agents")
 
-        # description="""La France traverse actuellement une grave crise de la démocratie, le parlement a été dissolu par le président Macron au début de l'été.
-        # Et la France est sans ministre depuis cette date.
-        # Vous êtes les nouveaux ministres de la France.
-        # Récupérez les dernières infos sur ce qui se passe en ce moment en France sur des sites d'informations comme 
-        #       sur https://news.google.com/home?hl=fr&gl=FR&ceid=FR:fr ou tout autre site pertinent. et faites des propositions. pour rétablir un état stable,
-        #       un équilibre et une transition.""",
-        
+
         # Create tasks for your agents
         task1 = Task(
-         description="""Vous êtes les ministres de la France. Récupérez les dernières infos sur ce qui se passe ne ce moment en France
-               sur https://news.google.com/home?hl=fr&gl=FR&ceid=FR:fr """,
+        description="""La France traverse actuellement une grave crise de la démocratie, le parlement a été dissolu par le président Macron au début de l'été.
+        Et la France est sans ministre depuis cette date.
+        Vous êtes les nouveaux ministres de la France.
+        Récupérez les dernières infos sur ce qui se passe en ce moment en France sur des sites d'informations comme 
+              sur https://news.google.com/home?hl=fr&gl=FR&ceid=FR:fr ou tout autre site pertinent. et faites des propositions. pour rétablir un état stable,
+              un équilibre et une transition.""",
+        # description="""Vous êtes les ministres de la France. Récupérez les dernières infos sur ce qui se passe ne ce moment en France
+        #       sur https://news.google.com/home?hl=fr&gl=FR&ceid=FR:fr """,
         agent=researcher,
         expected_output="""Un bullet list avec les dernières informations politiques""",
         )
@@ -164,7 +163,17 @@ class CrewaiGvt:
         print("crew", crew.agents)
 
         # Get your crew to work!
-        result = crew.kickoff()
+        #result = crew.kickoff()
 
-        print("######################")
-        print(result)
+        # print("######################")
+        # print(result)
+        crew_output = crew.kickoff()
+
+# Accessing the crew output
+        print(f"Raw Output: {crew_output.raw}")
+        if crew_output.json_dict:
+            print(f"JSON Output: {json.dumps(crew_output.json_dict, indent=2)}")
+        if crew_output.pydantic:
+            print(f"Pydantic Output: {crew_output.pydantic}")
+        print(f"Tasks Output: {crew_output.tasks_output}")
+        print(f"Token Usage: {crew_output.token_usage}")
