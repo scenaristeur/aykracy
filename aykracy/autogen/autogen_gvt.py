@@ -1,6 +1,6 @@
 import autogen
-#from autogen.agentchat.contrib.capabilities import context_handling
-from autogen.agentchat.contrib.web_surfer import WebSurferAgent  # noqa: E402
+# from autogen.agentchat.contrib.capabilities import context_handling
+# from autogen.agentchat.contrib.web_surfer import WebSurferAgent  # noqa: E402
 print("autogen")
 
 
@@ -15,8 +15,10 @@ class AutogenGvt:
             "OAI_CONFIG_LIST",
             filter_dict={
                 "model": [
+                    'Meta-Llama-3.1-8B-Instruct.Q4_K_M'
+                    # 'Llama 3.2 1B Instruct' # no function
                     #"gpt-3.5-turbo-1106",
-                    'ehartford_dolphin-2.2.1-mistral-7b'
+                    #'ehartford_dolphin-2.2.1-mistral-7b'
                     #'mistral'
                     #"llama2-uncensored"
                     # "gpt-4",
@@ -60,14 +62,14 @@ class AutogenGvt:
             llm_config=gpt4_config
         )
 
-        web_surfer = WebSurferAgent(
-            "web_surfer",
-            llm_config=gpt4_config,
-            summarizer_llm_config=summarizer_llm_config,
-            browser_config={"viewport_size": 4096,
-                            #"bing_api_key": bing_api_key
-                            },
-        )
+        # web_surfer = WebSurferAgent(
+        #     "web_surfer",
+        #     llm_config=gpt4_config,
+        #     summarizer_llm_config=summarizer_llm_config,
+        #     browser_config={"viewport_size": 4096,
+        #                     #"bing_api_key": bing_api_key
+        #                     },
+        # )
 
         engineer = autogen.AssistantAgent(
             name="Engineer",
@@ -110,12 +112,14 @@ class AutogenGvt:
         # pb de longueur de contexte avec gpt3.5 , 4097 tokens max
         # https://github.com/microsoft/autogen/blob/a52f52a1b556f76383c1908c3197f9583c3c383f/notebook/agentchat_capability_long_context_handling.ipynb#L7
         # Instantiate the capability to manage chat history
-        manage_chat_history = context_handling.TransformChatHistory(
-            max_tokens_per_message=50, max_messages=5, max_tokens=1000)
-        # Add the capability to the assistant
-        manage_chat_history.add_to_agent(assistant)
+        # manage_chat_history = context_handling.TransformChatHistory(
+        #     max_tokens_per_message=50, max_messages=5, max_tokens=1000)
+        # # Add the capability to the assistant
+        # manage_chat_history.add_to_agent(assistant)
 
-        agents = [assistant, web_surfer,user_proxy, engineer,
+        agents = [assistant,
+                  # web_surfer,
+                   user_proxy, engineer,
                   scientist, planner, executor, critic]
 
         # Gouvernement

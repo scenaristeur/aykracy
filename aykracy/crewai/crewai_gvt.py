@@ -1,10 +1,11 @@
 print("crewai_gvt.py")
-from crewai import Agent, Task, Crew, Process
+from crewai import Agent, Task, Crew, Process, LLM
 from langchain_community.tools import DuckDuckGoSearchRun
 import os
 from dotenv import load_dotenv
 #from langchain_community.llms import Ollama
-from langchain.chat_models.openai import ChatOpenAI
+from langchain_community.chat_models.openai import ChatOpenAI
+
 from langchain_community.llms import LlamaCpp
 load_dotenv()
 from langchain.callbacks.manager import CallbackManager
@@ -36,15 +37,20 @@ class CrewaiGvt:
         #          model_name=options["MODEL_NAME"]
         # )
 
-        llm = LlamaCpp(
+        llm = LLM(
+            model="openai/Meta-Llama-3-8B-Instruct",
+            api_key="123",
+            max_tokens=150,
+            base_url="http://localhost:5677/v1",
     # model_path="/Users/rlm/Desktop/Code/llama.cpp/models/openorca-platypus2-13b.gguf.q4_0.bin",
-    model_path="../aykracy/models/openhermes-2.5-mistral-7b.Q2_K.gguf",
-    #model_path="../aykracy/models/Meta-Llama-3.1-8B-Instruct.Q4_K_M.gguf",
-    temperature=0.1 , # 0.75, https://github.com/joaomdmoura/crewAI/issues/103#issuecomment-1894100634
-    max_tokens=32000,
-    n_ctx = 32768,
-    top_p=1,
-    callback_manager=callback_manager,
+    # model_path="../aykracy/models/openhermes-2.5-mistral-7b.Q2_K.gguf",
+    # model_path="../aykracy/models/Meta-Llama-3.1-8B-Instruct.Q4_K_M.gguf",
+    # model_path="../aykracy/models/Llama-3.2-1B-Instruct.Q4_K_M.gguf",
+    # temperature=0.1 , # 0.75, https://github.com/joaomdmoura/crewAI/issues/103#issuecomment-1894100634
+    # max_tokens=32000,
+    # n_ctx = 32768,
+    # top_p=1,
+    #callback_manager=callback_manager,
     verbose=True,  # Verbose is required to pass to the callback manager
 )
 
@@ -129,10 +135,10 @@ class CrewaiGvt:
         
         # Create tasks for your agents
         task1 = Task(
-         description="""Vous êtes les ministres de la France. Récupérez les dernières infos sur ce qui se passe ne ce moment en France
+         description="""Vous êtes les ministres de la France. Récupérez les dernières infos sur ce qui se passe en ce moment en France
                sur https://news.google.com/home?hl=fr&gl=FR&ceid=FR:fr """,
         agent=researcher,
-        expected_output="""Un bullet list avec les dernières informations politiques""",
+        expected_output="""Un bullet list avec les 10 dernières informations politiques""",
         )
 
         task2 = Task(
@@ -145,8 +151,8 @@ class CrewaiGvt:
 
         task3 = Task(
         description="""
-              Vous devez prendre des décisions en fonctions des rapports qui vous sont transmis""",
-        agent=agents[3],
+              Après avoir consulté les Ministres concernés sur ces différents sujets, vous devez prendre des décisions en fonctions des rapports qui vous sont transmis""",
+        agent=writer,
         expected_output="""Des décisions.""",
         )
         
