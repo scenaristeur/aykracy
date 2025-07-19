@@ -1,5 +1,5 @@
 #autogen
-pyautogen==0.2.35
+ag2==0.2.35
 markdownify==0.13.1
 
 #crewai
